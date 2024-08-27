@@ -4,9 +4,13 @@ positive_numbers = []
 if my_list[0] > 0:
     positive_numbers.append(my_list[0])
     i = 1
-
-while i < len(my_list) and my_list[i] >= 0:
+while i < len(my_list) and my_list[i] > 0:
     positive_numbers.append(my_list[i])
-    i = i + 1
+    i += 1
+    if my_list[i] == 0:
+        i += 1
+    elif my_list[i] < 0 :
+        break
+
 
 print(positive_numbers)

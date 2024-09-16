@@ -3,7 +3,7 @@ def send_email(messege, recipient,sender = "university.help@gmail.com") :
                                                            or recipient.endswith('.net')) :
         print(f'Невозможно отправить письмо с адреса{sender} на адрес {recipient} .')
     elif recipient == sender :
-        print('Нельзя отправить письмо самому себе!')
+        print('НЕСТАНДАРТНЫЙ ОТПРАВИТЕЛЬ!')
     else:
         print(f'Отправляем письмо от {sender} на адрес {recipient} с сщщбщением : {messege}')
 

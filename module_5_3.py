@@ -45,7 +45,7 @@ class House:
         return self.__add__(value)
 
     def __repr__(self):
-        return f'House(floors={self.number_of_floors})'
+        return f'({self.name} ={self.number_of_floors})'
 
 
 
@@ -73,3 +73,5 @@ print(h1 < h2)
 print(h1 != h2)
 print(h1 >= h2)
 print(h1 <= h2)
+print(repr(h1))
+print(repr(h2))

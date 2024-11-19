@@ -16,7 +16,7 @@ class House:
         return f'Название:{self.name},кол-во этажей:{self.number_of_floors}'
 
     def __eq__(self, other):
-        return self.name == other.name and self.number_of_floors == other.number_of_floors
+        return self.name == other.name or self.number_of_floors == other.number_of_floors
 
     def __lt__(self, other):
         return self.number_of_floors < other.number_of_floors
@@ -33,21 +33,43 @@ class House:
     def __ne__(self, other):
         return self.number_of_floors != other.number_of_floors
 
-    def add(self, value):
+    def __add__(self, value):
         self.number_of_floors += value
         return self
 
 
+    def __radd__(self, value):
+        return self.__add__(value)
+
+    def __iadd__(self, value):
+        return self.__add__(value)
+
+    def __repr__(self):
+        return f'House(floors={self.number_of_floors})'
 
 
-h1 = House('шоколадка', 25)
-h2 = House('Вишенка', 10)
+
+h1 = House('ЖК Эльбрус', 10)
+h2 = House('ЖК Акация', 20)
 
 print(h1)
 print(h2)
-print(h1.add(10))
-print(h2.add(57))
+
 print(h1 == h2)
+
+h1 + 10
+print(h1)
+
+print(h1 == h2)
+
+h1 += 10
+print(h1)
+
+h2 = 10 + h2
+print(h2)
+
 print(h1 > h2)
 print(h1 < h2)
 print(h1 != h2)
+print(h1 >= h2)
+print(h1 <= h2)
